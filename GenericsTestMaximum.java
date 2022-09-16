@@ -25,6 +25,12 @@ public class GenericsTestMaximum <T extends Comparable<T>>{
 		GenericsTestMaximum.max(this.varOne, this.varTwo, this.varThree, this.varFour, this.varFive);
 		
 	}
+	
+	public static <E> void printMax(E max, ArrayList<E> list ) {
+		
+		System.out.println(max + " is maximum among " + list);
+		
+	}
 
     public static void main(String[] args) {
 	
@@ -61,7 +67,7 @@ public class GenericsTestMaximum <T extends Comparable<T>>{
     	varList.add(fourthVar);
     	varList.add(fifthVar);
     	
-    	System.out.println(Collections.max(varList) + " is the maximum out of " + varList);
+    	printMax(Collections.max(varList), varList);
     	
     }
 }

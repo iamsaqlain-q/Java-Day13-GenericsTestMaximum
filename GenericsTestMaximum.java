@@ -1,87 +1,67 @@
 package com.bl.generics;
 
-public class GenericsTestMaximum {
+import java.util.ArrayList;
+import java.util.Collections;
 
-	public static void main(String[] args) {
+public class GenericsTestMaximum <T extends Comparable<T>>{
+	
+	T varOne;
+	T varTwo;
+	T varThree;
+	T varFour;
+	T varFive;
+	
+	public GenericsTestMaximum(T varOne, T varTwo, T varThree, T varFour, T varFive) {
+		super();
+		this.varOne = varOne;
+		this.varTwo = varTwo;
+		this.varThree = varThree;
+		this.varFour = varFour;
+		this.varFive = varFive;
+	}
+	
+	public void findMax() {
+		
+		GenericsTestMaximum.max(this.varOne, this.varTwo, this.varThree, this.varFour, this.varFive);
+		
+	}
+
+    public static void main(String[] args) {
 	
 		Integer fNum = 11;
 		Integer sNum = 21;
 		Integer tNum = 31;
+		Integer num4 = 41;
+		Integer num5 = 51;
 		Float fNumFloat = 11.1F;
 		Float sNumFloat = 21.1F;
 		Float tNumFloat = 31.1F;
+		Float numF4 = 41.1F;
+		Float numF5 = 51.1F;
 		String fString = "Apple";
 		String sString = "Peach";
 		String tString = "Banana";
+		String string4 = "Mango";
+		String string5 = "PineApple";
 		
 		System.out.println("***** Test Maximum among three ***** ");
-		GenericsTestMaximum m = new GenericsTestMaximum();
-		m.findMax(fNum, sNum, tNum);
-		m.findMax(fNumFloat, sNumFloat, tNumFloat);
-		m.findMax(fString, sString, tString);
+		max(fNum, sNum, tNum, num4, num5);
+		max(fNumFloat, sNumFloat, tNumFloat, numF4, numF5 );
+		max(fString, sString, tString, string4, string5);
 		
 	}
 	
-public void findMax(String fString, String sString, String tString) {
-		
-		String maxStr;
-		
-		if(fString.compareTo(sString) > 0 && fString.compareTo(tString) > 0 )
-		{
-			maxStr = fString;
-		}
-		
-		else if(sString.compareTo(fString) > 0 && sString.compareTo(tString) > 0 )
-		{
-			maxStr = sString;
-		}
-		
-		else 
-			{
-			maxStr = tString;
-			}
-		System.out.println("Maximum String is : " + maxStr + " among " + fString + ", " + sString + " and " + tString);
-		}
-	
-public void findMax(Float fNumFloat, Float sNumFloat, Float tNumFloat) {
-	
-	Float maxNum;
-	
-	if(fNumFloat.compareTo(sNumFloat) > 0 && fNumFloat.compareTo(tNumFloat) > 0 )
-	{
-		maxNum = fNumFloat;
-	}
-	
-	else if(sNumFloat.compareTo(fNumFloat) > 0 && sNumFloat.compareTo(tNumFloat) > 0 )
-	{
-		maxNum = sNumFloat;
-	}
-	
-	else 
-		{
-			maxNum = tNumFloat;
-		}
-	System.out.println("Maximum Float is : " + maxNum + " among " + fNumFloat + ", " + sNumFloat + " and " + tNumFloat);
-	}
-	
-public void findMax(Integer fNum, Integer sNum, Integer tNum) {
-	
-	Integer maxNum;
-	
-	if(fNum.compareTo(sNum) > 0 && fNum.compareTo(tNum) > 0 )
-	{
-		maxNum = fNum;
-	}
-	
-	else if(sNum.compareTo(fNum) > 0 && sNum.compareTo(tNum) > 0 )
-	{
-		maxNum = sNum;
-	}
-	
-	else 
-		{
-			maxNum = tNum;
-		}
-	System.out.println("Maximum Integer is : " + maxNum + " among " + fNum + ", " + sNum + " and " + tNum);
-	}
+    public static <E extends Comparable<E>> void max(E firstVar, E secondVar, E thirdVar, E fourthVar, E fifthVar) {
+    	
+    	ArrayList <E> varList = new ArrayList<>();
+    	
+    	varList.add(firstVar);
+    	varList.add(secondVar);
+    	varList.add(thirdVar);
+    	varList.add(fourthVar);
+    	varList.add(fifthVar);
+    	
+    	System.out.println(Collections.max(varList) + " is the maximum out of " + varList);
+    	
+    }
 }

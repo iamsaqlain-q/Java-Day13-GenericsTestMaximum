@@ -1,6 +1,6 @@
 package com.bl.generics;
 
-public class MaximumInt {
+public class GenericsTestMaximum {
 
 	public static void main(String[] args) {
 	
@@ -9,7 +9,7 @@ public class MaximumInt {
 		Integer tNum = 31;
 		
 		System.out.println("Maximum among three integer");
-		MaximumInt m = new MaximumInt();
+		GenericsTestMaximum m = new GenericsTestMaximum();
 		m.findMax(fNum, sNum, tNum);
 		
 	}
